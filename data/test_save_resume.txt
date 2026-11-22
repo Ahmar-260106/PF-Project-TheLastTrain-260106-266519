@@ -1,0 +1,8 @@
+1 1
+move 1 2
+collect <
+save
+move 1 3
+load
+status
+quit

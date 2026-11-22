@@ -1,50 +1,53 @@
-#include "simulator.h"
 #include "level.h"
 #include "logger.h"
+#include "simulator.h"
 #include "viewer_iface.h"
 #include <iostream>
+#include <sys/stat.h>
 
 int main() {
-    // Player State Primitives
-    int playerFloor = 1;
-    int playerRoom = 1;
-    int energy = INITIAL_ENERGY;
-    int time = INITIAL_TIME;
-    int score = INITIAL_SCORE;
-    
-    char inventory[MAX_INVENTORY_CAPACITY];
-    int inventoryCount = 0;
-    int emergencyTripsLeft = 0;
+  mkdir("out", 0777);
+  // Player State Primitives
+  int playerFloor = 1;
+  int playerRoom = 1;
+  int energy = INITIAL_ENERGY;
+  int time = INITIAL_TIME;
+  int score = INITIAL_SCORE;
 
-    // Objective State Booleans
-    bool objectives[NUM_OBJECTIVES] = { false };
+  char inventory[MAX_INVENTORY_CAPACITY];
+  int inventoryCount = 0;
+  int emergencyTripsLeft = 0;
 
-    // Building Connectivity & Entity Parallel Matrices
-    char horizontalConn[NUM_FLOORS][ROOMS_PER_FLOOR - 1];
-    char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM];
-    int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR] = { 0 };
+  // Objective State Booleans
+  bool objectives[NUM_OBJECTIVES] = {false};
 
-    const char* mapFile = "data/building.txt";
-    const char* initStateFile = "data/initial-state.txt";
+  // Building Connectivity & Entity Parallel Matrices
+  char horizontalConn[NUM_FLOORS][ROOMS_PER_FLOOR - 1];
+  char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM];
+  int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR] = {0};
 
-    if (!loadBuildingMap(mapFile, horizontalConn, roomEntities, entityCounts)) {
-        std::cerr << "Error: Could not load " << mapFile << "\n";
-        return 1;
-    }
+  const char *mapFile = "data/building.txt";
+  const char *initStateFile = "data/initial-state.txt";
 
-    if (!loadInitialState(initStateFile, playerFloor, playerRoom, energy, time, score,
-                          inventory, inventoryCount, objectives, emergencyTripsLeft)) {
-        std::cerr << "Error: Could not load " << initStateFile << "\n";
-        return 1;
-    }
+  if (!loadBuildingMap(mapFile, horizontalConn, roomEntities, entityCounts)) {
+    std::cerr << "Error: Could not load " << mapFile << "\n";
+    return 1;
+  }
 
-    std::cout << "===========================================\n";
-    std::cout << " THE LAST TRAIN - SIMULATION INITIALIZED   \n";
-    std::cout << "===========================================\n";
+  if (!loadInitialState(initStateFile, playerFloor, playerRoom, energy, time,
+                        score, inventory, inventoryCount, objectives,
+                        emergencyTripsLeft)) {
+    std::cerr << "Error: Could not load " << initStateFile << "\n";
+    return 1;
+  }
 
-    runSimulation(playerFloor, playerRoom, energy, time, score,
-                  inventory, inventoryCount, objectives, emergencyTripsLeft,
-                  horizontalConn, roomEntities, entityCounts);
+  std::cout << "===========================================\n";
+  std::cout << " THE LAST TRAIN - SIMULATION INITIALIZED   \n";
+  std::cout << "===========================================\n";
 
-    return 0;
+  runSimulation(playerFloor, playerRoom, energy, time, score, inventory,
+                inventoryCount, objectives, emergencyTripsLeft, horizontalConn,
+                roomEntities, entityCounts);
+
+  return 0;
 }

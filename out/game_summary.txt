@@ -1,0 +1,21 @@
+THE LAST TRAIN - VICTORY
+Score: 520 / 520
+Energy: 2
+Time: 0
+Objectives:
+[X] Master Key
+[X] Clue 4
+[X] Clue 2
+[X] Clue 7
+[X] Cabinet Unlocked
+[X] Train Key
+[X] Fuse Collected
+[X] Fuse Installed
+[X] Lift Pass
+[X] Lift 2 Active
+[X] Passenger Rescued
+[X] Cat Carrier
+[X] Cat Secured
+[X] Train Prepared
+[X] Mission Won
+[ ] Mission Failed
