@@ -1,6 +1,6 @@
 THE LAST TRAIN - VICTORY
 Score: 520 / 520
-Energy: 2
+Energy: 20
 Time: 0
 Objectives:
 [X] Master Key
@@ -19,3 +19,52 @@ Objectives:
 [X] Train Prepared
 [X] Mission Won
 [ ] Mission Failed
+
+SESSION AUDIT LOG (DETERMINISTIC TRACE):
+START -> F4-R2 | E:100 | T:50 | Score:0
+Step 1: collect % -> F4-R2 | E:99 | T:49 | Score:0
+Step 2: collect $ -> F4-R2 | E:98 | T:48 | Score:0
+Step 3: move 4 1 -> F4-R1 | E:95 | T:46 | Score:0
+Step 4: use % -> F4-R1 | E:94 | T:45 | Score:100
+Step 5: move 5 1 -> F5-R1 | E:92 | T:44 | Score:100
+Step 6: inspect -> F5-R1 | E:91 | T:43 | Score:110
+Step 7: move 5 2 -> F5-R2 | E:89 | T:42 | Score:110
+Step 8: move 5 3 -> F5-R3 | E:87 | T:41 | Score:110
+Step 9: collect @ -> F5-R3 | E:86 | T:40 | Score:110
+Step 10: move 5 4 -> F5-R4 | E:83 | T:38 | Score:110
+Step 11: collect & -> F5-R4 | E:82 | T:52 | Score:110
+Step 12: move 4 4 -> F4-R4 | E:78 | T:49 | Score:110
+Step 13: move 4 3 -> F4-R3 | E:76 | T:48 | Score:110
+Step 14: inspect -> F4-R3 | E:75 | T:47 | Score:120
+Step 15: move 4 4 -> F4-R4 | E:73 | T:46 | Score:120
+Step 16: move 2 4 -> F2-R4 | E:69 | T:43 | Score:120
+Step 17: move 2 3 -> F2-R3 | E:67 | T:42 | Score:120
+Step 18: collect \ -> F2-R3 | E:81 | T:41 | Score:120
+Step 19: move 1 2 -> F1-R2 | E:77 | T:38 | Score:120
+Step 20: collect < -> F1-R2 | E:76 | T:37 | Score:130
+Step 21: move 2 2 -> F2-R2 | E:72 | T:34 | Score:130
+Step 22: move 2 1 -> F2-R1 | E:70 | T:33 | Score:130
+Step 23: move 3 1 -> F3-R1 | E:68 | T:32 | Score:130
+Step 24: move 3 2 -> F3-R2 | E:66 | T:31 | Score:130
+Step 25: inspect -> F3-R2 | E:65 | T:30 | Score:140
+Step 26: collect * -> F3-R2 | E:64 | T:29 | Score:140
+Step 27: move 3 3 -> F3-R3 | E:61 | T:27 | Score:140
+Step 28: use @ -> F3-R3 | E:60 | T:26 | Score:240
+Step 29: move 3 4 -> F3-R4 | E:58 | T:25 | Score:240
+Step 30: use * -> F3-R4 | E:57 | T:24 | Score:260
+Step 31: collect ( -> F3-R4 | E:56 | T:23 | Score:280
+Step 32: move 3 3 -> F3-R3 | E:54 | T:22 | Score:280
+Step 33: move 3 2 -> F3-R2 | E:51 | T:20 | Score:280
+Step 34: move 3 1 -> F3-R1 | E:49 | T:19 | Score:280
+Step 35: move 2 1 -> F2-R1 | E:47 | T:18 | Score:280
+Step 36: move 2 2 -> F2-R2 | E:45 | T:17 | Score:280
+Step 37: move 1 2 -> F1-R2 | E:41 | T:14 | Score:280
+Step 38: move 2 3 -> F2-R3 | E:37 | T:11 | Score:280
+Step 39: move 2 4 -> F2-R4 | E:35 | T:10 | Score:280
+Step 40: move 5 4 -> F5-R4 | E:31 | T:7 | Score:280
+Step 41: move 5 3 -> F5-R3 | E:28 | T:5 | Score:280
+Step 42: move 5 2 -> F5-R2 | E:26 | T:4 | Score:280
+Step 43: move 5 1 -> F5-R1 | E:24 | T:3 | Score:280
+Step 44: unlock 427 -> F5-R1 | E:23 | T:2 | Score:320
+Step 45: move 5 2 -> F5-R2 | E:21 | T:1 | Score:320
+Step 46: use ^ -> F5-R2 | E:20 | T:0 | Score:520

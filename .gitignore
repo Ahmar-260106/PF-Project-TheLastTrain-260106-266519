@@ -1,5 +1,3 @@
 last_train
 *.o
-.DS_Store
-~$*
-build/
+*.out

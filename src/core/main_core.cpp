@@ -2,12 +2,12 @@
 #include "logger.h"
 #include "simulator.h"
 #include "viewer_iface.h"
+#include <filesystem>
 #include <iostream>
-#include <sys/stat.h>
 
 int main() {
-  mkdir("out", 0777);
-  // Player State Primitives
+  std::filesystem::create_directories("out");
+
   int playerFloor = 1;
   int playerRoom = 1;
   int energy = INITIAL_ENERGY;
@@ -18,16 +18,14 @@ int main() {
   int inventoryCount = 0;
   int emergencyTripsLeft = 0;
 
-  // Objective State Booleans
   bool objectives[NUM_OBJECTIVES] = {false};
 
-  // Building Connectivity & Entity Parallel Matrices
   char horizontalConn[NUM_FLOORS][ROOMS_PER_FLOOR - 1];
   char roomEntities[NUM_FLOORS][ROOMS_PER_FLOOR][MAX_ENTITIES_PER_ROOM];
-  int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR] = {0};
+  int entityCounts[NUM_FLOORS][ROOMS_PER_FLOOR] = {{0}};
 
-  const char *mapFile = "data/building.txt";
-  const char *initStateFile = "data/initial-state.txt";
+  const char* mapFile = "data/building.txt";
+  const char* initStateFile = "data/initial-state.txt";
 
   if (!loadBuildingMap(mapFile, horizontalConn, roomEntities, entityCounts)) {
     std::cerr << "Error: Could not load " << mapFile << "\n";
